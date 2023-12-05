@@ -2,22 +2,46 @@ const express = require("express");
 
 const router = express.Router();
 
-/* ************************************************************************* */
-// Define Your API Routes Here
-/* ************************************************************************* */
+// const client = require("../database/client");
 
-// Import itemControllers module for handling item-related operations
-const itemControllers = require("./controllers/itemControllers");
+// /* ************************************************************************* */
+// // Define Your API Routes Here
+// /* ************************************************************************* */
 
-// Route to get a list of items
-router.get("/items", itemControllers.browse);
+// // Import itemControllers module for handling item-related operations
+const activityControllers = require("./controllers/activityControllers");
+const paysControllers = require("./controllers/paysControllers");
 
-// Route to get a specific item by ID
-router.get("/items/:id", itemControllers.read);
+// // Route to get a list of items
+router.get("/activities", activityControllers.getActivity);
+router.get("/destinations", paysControllers.getPays);
 
-// Route to add a new item
-router.post("/items", itemControllers.add);
+// // Route to get a specific item by ID
+router.get("/destinations/:id", activityControllers.getActivityByID);
+router.get("/destinations/:id", paysControllers.getPaysByID);
 
-/* ************************************************************************* */
+// // Route to add a new item
+// // router.post("/DESTINATIONS", itemControllers.add);
+// router.post("/destinations", activityControllers.add);
+// router.post("/destinations", paysControllers.add);
 
 module.exports = router;
+
+// /* ************************************************************************* */
+// router.get("./destinations", (req, res) => {
+//   let query = "SELECT * FROM activity";
+//   const value = [];
+//   if (req.query.pays) {
+//     query += "WHERE pays_id = ?";
+//     value.push(req.query.pays);
+//   }
+//   client
+//     .query(query, value)
+//     .then((result) => {
+//       res.status(200).json(result[0]);
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       res.sendStatus(500);
+//     });
+// });

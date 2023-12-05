@@ -1,38 +1,38 @@
+/* eslint-disable react/jsx-no-undef */
+/* eslint-disable no-undef */
+import { Link } from "react-router-dom";
 import Counter from "./components/Counter";
 import logo from "./assets/logo.svg";
-
 import "./App.css";
+import Destination from "./pages/Destination";
+import Gagnez from "./pages/Gagnez";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React !</p>
-
+        <p>Voyage Voyage</p>
         <Counter />
+        <p>
+          <div>
+            <Link className="home" to="/">
+              <h2>
+                {" "}
+                <Destination />
+              </h2>
+            </Link>
+          </div>
 
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
           {" | "}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
+          <div>
+            <Link className="home" to="/">
+              <h2>
+                {" "}
+                Gagnez votre sejour <Gagnez />
+              </h2>
+            </Link>
+          </div>
         </p>
       </header>
     </div>
@@ -40,3 +40,19 @@ function App() {
 }
 
 export default App;
+
+// import { Outlet } from "react-router-dom";
+// import Navbar from "./components/navbar/Navbar";
+// import Footer from "./components/footer/Footer";
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <Navbar />
+//       <Outlet />
+//       <Footer />
+//     </div>
+//   );
+// }
+
+// export default App;

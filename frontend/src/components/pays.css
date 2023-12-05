@@ -1,0 +1,15 @@
+.Card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+}
+
+.noPhoto {
+  display: none;
+}
