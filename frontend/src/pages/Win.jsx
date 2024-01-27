@@ -1,13 +1,13 @@
-import Jouez from "../components/Jouez";
+import Play from "../components/play/Play";
 
-function Gagnez() {
+function Win() {
   return (
     <div className="game">
       <div className="game-consignes">
-        <Jouez />
+        <Play />
       </div>
     </div>
   );
 }
 
-export default Gagnez;
+export default Win;

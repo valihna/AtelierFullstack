@@ -9,39 +9,22 @@ const router = express.Router();
 // /* ************************************************************************* */
 
 // // Import itemControllers module for handling item-related operations
-const activityControllers = require("./controllers/activityControllers");
-const paysControllers = require("./controllers/paysControllers");
-
+const activitiesControllers = require("./controllers/ActivitiesControllers");
+const countriesControllers = require("./controllers/CountriesControllers");
 // // Route to get a list of items
-router.get("/activities", activityControllers.getActivity);
-router.get("/destinations", paysControllers.getPays);
-
+router.get("/activities", activitiesControllers.browse);
+router.get("/countries", countriesControllers.browse);
 // // Route to get a specific item by ID
-router.get("/destinations/:id", activityControllers.getActivityByID);
-router.get("/destinations/:id", paysControllers.getPaysByID);
-
-// // Route to add a new item
-// // router.post("/DESTINATIONS", itemControllers.add);
-// router.post("/destinations", activityControllers.add);
-// router.post("/destinations", paysControllers.add);
+router.get("/activities/:id", activitiesControllers.read);
+router.get("/countries/:id", countriesControllers.read);
+// // Route to update a new item
+router.put("/activities/:id", activitiesControllers.update);
+router.put("/countries/:id", countriesControllers.update);
+// router.post:
+router.post("/activities", activitiesControllers.add);
+router.post("/countries", countriesControllers.add);
+// router.delete:
+router.delete("/activities/:id", activitiesControllers.destroy);
+router.delete("/countries/:id", countriesControllers.destroy);
 
 module.exports = router;
-
-// /* ************************************************************************* */
-// router.get("./destinations", (req, res) => {
-//   let query = "SELECT * FROM activity";
-//   const value = [];
-//   if (req.query.pays) {
-//     query += "WHERE pays_id = ?";
-//     value.push(req.query.pays);
-//   }
-//   client
-//     .query(query, value)
-//     .then((result) => {
-//       res.status(200).json(result[0]);
-//     })
-//     .catch((err) => {
-//       console.error(err);
-//       res.sendStatus(500);
-//     });
-// });
