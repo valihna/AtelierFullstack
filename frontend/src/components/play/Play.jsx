@@ -1,7 +1,7 @@
 /* eslint-disable react/button-has-type */
 import { useState } from "react";
 import PropTypes from "prop-types";
-import "./Jouez.css";
+import "./Play.css";
 
 const calculateWinner = (carres) => {
   const lines = [
@@ -41,7 +41,7 @@ Carre.propTypes = {
 };
 
 // eslint-disable-next-line react/function-component-definition
-const Jouez = () => {
+const Play = () => {
   const [carres, setCarres] = useState(Array(9).fill(null));
   const [xSuivant, setXSuivant] = useState(true);
 
@@ -87,4 +87,4 @@ const Jouez = () => {
   );
 };
 
-export default Jouez;
+export default Play;
