@@ -6,7 +6,6 @@ import connexion from "./services/connexion";
 import App from "./App";
 import Destinations from "./pages/Destinations";
 import Win from "./pages/Win";
-// import Validate from "./pages/Validate";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +32,10 @@ const router = createBrowserRouter([
             .catch((err) => console.error(err));
         },
       },
+      // {
+      //   path: "/activities",
+      //   element: <Activities />,
+      // },
       {
         path: "/win",
         element: <Win />,
@@ -44,14 +47,8 @@ const router = createBrowserRouter([
         },
       },
       // {
-      //   path: "/validate",
-      //   element: <Validate />,
-      //   loader: () => {
-      //     return connexion
-      //       .get(`/validate`)
-      //       .then((response) => response.data)
-      //       .catch((err) => console.error(err));
-      //   },
+      //   path: "/login",
+      //   element: <Login />,
       // },
     ],
   },
