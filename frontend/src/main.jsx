@@ -6,7 +6,6 @@ import connexion from "./services/connexion";
 import App from "./App";
 import Destinations from "./pages/Destinations";
 import Win from "./pages/Win";
-// import Validate from "./pages/Validate";
 
 const router = createBrowserRouter([
   {
@@ -16,42 +15,46 @@ const router = createBrowserRouter([
       {
         path: "/countries",
         element: <Destinations />,
-        loader: () => {
-          return connexion
-            .get(`/countries`)
-            .then((response) => response.data)
-            .catch((err) => console.error(err));
+        loader: async () => {
+          try {
+            const response = await connexion.get(`/countries`);
+            return response.data;
+          } catch (err) {
+            return console.error(err);
+          }
         },
       },
       {
         path: "/countries/:id",
         element: <Destinations />,
-        loader: ({ params }) => {
-          return connexion
-            .get(`/countries/${params.id}`)
-            .then((response) => response.data)
-            .catch((err) => console.error(err));
-        },
-      },
-      {
-        path: "/win",
-        element: <Win />,
-        loader: () => {
-          return connexion
-            .get(`/win`)
-            .then((response) => response.data)
-            .catch((err) => console.error(err));
+        loader: async ({ params }) => {
+          try {
+            const response = await connexion.get(`/countries/${params.id}`);
+            return response.data;
+          } catch (err) {
+            return console.error(err);
+          }
         },
       },
       // {
-      //   path: "/validate",
-      //   element: <Validate />,
-      //   loader: () => {
-      //     return connexion
-      //       .get(`/validate`)
-      //       .then((response) => response.data)
-      //       .catch((err) => console.error(err));
-      //   },
+      //   path: "/activities",
+      //   element: <Activities />,
+      // },
+      {
+        path: "/win",
+        element: <Win />,
+        loader: async () => {
+          try {
+            const response = await connexion.get(`/win`);
+            return response.data;
+          } catch (err) {
+            return console.error(err);
+          }
+        },
+      },
+      // {
+      //   path: "/login",
+      //   element: <Login />,
       // },
     ],
   },

@@ -9,7 +9,7 @@ function Navbar() {
       <div className="nav_link">
         <SearchBar />
         <Link to="/">
-          <p className="nav_p">Accueil </p>
+          <p className="nav_p">Welcome </p>
         </Link>
         <Link to="/countries">
           <p className="nav_p">Countries </p>
@@ -18,10 +18,10 @@ function Navbar() {
           <p className="nav_p">Activities </p>
         </Link>
         <Link to="/win">
-          <p className="nav_p">Win </p>
+          <p className="nav_p">Play </p>
         </Link>
         <Link to="/login">
-          <p className="nav_p">Connexion </p>
+          <p className="nav_p">Login </p>
         </Link>
       </div>
     </div>

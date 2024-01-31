@@ -1,4 +1,3 @@
-/* eslint-disable react/button-has-type */
 import { useState } from "react";
 import PropTypes from "prop-types";
 import "./Play.css";
@@ -15,8 +14,7 @@ const calculateWinner = (carres) => {
     [2, 4, 6],
   ];
 
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < lines.length; i++) {
+  for (let i = 0; i < 10; i) {
     const [a, b, c] = lines[i];
     if (carres[a] && carres[a] === carres[b] && carres[a] === carres[c]) {
       return carres[a];
@@ -28,7 +26,7 @@ const calculateWinner = (carres) => {
 
 function Carre({ value, onClick }) {
   return (
-    <button className="carre" onClick={onClick}>
+    <button type="button" className="carre" onClick={onClick}>
       {value}
     </button>
   );
@@ -40,8 +38,7 @@ Carre.propTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-// eslint-disable-next-line react/function-component-definition
-const Play = () => {
+function Play() {
   const [carres, setCarres] = useState(Array(9).fill(null));
   const [xSuivant, setXSuivant] = useState(true);
 
@@ -62,7 +59,7 @@ const Play = () => {
 
   const winner = calculateWinner(carres);
   const status = winner
-    ? `Bravo ,tu peux aller sur la messagerie du père Noël !`
+    ? `Bravo ,tu as gagné le voyage de ton choix!`
     : `Next player: ${xSuivant ? "X" : "O"}`;
 
   return (
@@ -85,6 +82,6 @@ const Play = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Play;

@@ -13,7 +13,7 @@ function CountryCard({ count }) {
       </div>
       <div className="country-desc">
         <p className="countries">{count.countries}</p>
-        <p className="photo">{count.photo}</p>
+        {/* <p className="photo">{count.photo}</p> */}
       </div>
     </article>
   );
