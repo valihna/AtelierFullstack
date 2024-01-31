@@ -18,7 +18,7 @@ function Navbar() {
           <p className="nav_p">Activities </p>
         </Link>
         <Link to="/win">
-          <p className="nav_p">Win </p>
+          <p className="nav_p">Play </p>
         </Link>
         <Link to="/login">
           <p className="nav_p">Login </p>

@@ -15,21 +15,25 @@ const router = createBrowserRouter([
       {
         path: "/countries",
         element: <Destinations />,
-        loader: () => {
-          return connexion
-            .get(`/countries`)
-            .then((response) => response.data)
-            .catch((err) => console.error(err));
+        loader: async () => {
+          try {
+            const response = await connexion.get(`/countries`);
+            return response.data;
+          } catch (err) {
+            return console.error(err);
+          }
         },
       },
       {
         path: "/countries/:id",
         element: <Destinations />,
-        loader: ({ params }) => {
-          return connexion
-            .get(`/countries/${params.id}`)
-            .then((response) => response.data)
-            .catch((err) => console.error(err));
+        loader: async ({ params }) => {
+          try {
+            const response = await connexion.get(`/countries/${params.id}`);
+            return response.data;
+          } catch (err) {
+            return console.error(err);
+          }
         },
       },
       // {
@@ -39,11 +43,13 @@ const router = createBrowserRouter([
       {
         path: "/win",
         element: <Win />,
-        loader: () => {
-          return connexion
-            .get(`/win`)
-            .then((response) => response.data)
-            .catch((err) => console.error(err));
+        loader: async () => {
+          try {
+            const response = await connexion.get(`/win`);
+            return response.data;
+          } catch (err) {
+            return console.error(err);
+          }
         },
       },
       // {

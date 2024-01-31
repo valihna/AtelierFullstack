@@ -1,18 +1,14 @@
 .Acc {
-  height: 100%;
-  width: 100%;
-  background-color: #e2e2e2;
-}
-.Acc {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  background-color: #e2e2e2;
 }
 
 .background {
-  max-width: 100%; /* Pour s'assurer que l'image ne dépasse pas la largeur de son conteneur */
-  border-radius: 8px; /* Pour arrondir les coins de l'image */
-  margin-top: 20px; /* Marge supplémentaire au-dessus de l'image */
+  max-width: 100%;
+  border-radius: 8px;
+  margin-top: 20px;
 }
