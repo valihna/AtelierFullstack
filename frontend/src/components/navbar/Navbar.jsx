@@ -20,7 +20,7 @@ function Navbar() {
         <Link to="/win">
           <p className="nav_p">Play </p>
         </Link>
-        <Link to="/favorites">
+        <Link to="/favorite">
           <p className="nav_p">favorites </p>
         </Link>
         <Link to="/login">

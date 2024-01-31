@@ -5,8 +5,10 @@ import connexion from "./services/connexion";
 import { FavProvider } from "./Context/Context";
 import App from "./App";
 import Destinations from "./pages/Destinations";
-import Win from "./pages/Win";
+import Activities from "./pages/Activities";
+// import Win from "./pages/Win";
 import Favorite from "./components/favorites/Favorite";
+// import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -37,16 +39,12 @@ const router = createBrowserRouter([
           }
         },
       },
-      // {
-      //   path: "/activities",
-      //   element: <Activities />,
-      // },
       {
-        path: "/win",
-        element: <Win />,
+        path: "/activities",
+        element: <Activities />,
         loader: async () => {
           try {
-            const response = await connexion.get(`/win`);
+            const response = await connexion.get(`/activities`);
             return response.data;
           } catch (err) {
             return console.error(err);
@@ -54,16 +52,32 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/favorite",
-        element: <Favorite />,
-        loader: async () => {
+        path: "/activities:id",
+        element: <Activities />,
+        loader: async ({ params }) => {
           try {
-            const response = await connexion.get(`/countries`);
+            const response = await connexion.get(`/activities/${params.id}`);
             return response.data;
           } catch (err) {
             return console.error(err);
           }
         },
+      },
+      // {
+      //   path: "/win",
+      //   element: <Win />,
+      // },
+      {
+        path: "/favorite",
+        element: <Favorite />,
+        // loader: async () => {
+        //   try {
+        //     const response = await connexion.get(`/favorite`);
+        //     return response.data;
+        //   } catch (err) {
+        //     return console.error(err);
+        //   }
+        // },
       },
       // {
       //   path: "/login",
