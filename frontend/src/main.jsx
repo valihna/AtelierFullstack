@@ -2,10 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import connexion from "./services/connexion";
-
+import { FavProvider } from "./Context/Context";
 import App from "./App";
 import Destinations from "./pages/Destinations";
 import Win from "./pages/Win";
+import Favorite from "./components/favorites/Favorite";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,18 @@ const router = createBrowserRouter([
           }
         },
       },
+      {
+        path: "/favorite",
+        element: <Favorite />,
+        loader: async () => {
+          try {
+            const response = await connexion.get(`/countries`);
+            return response.data;
+          } catch (err) {
+            return console.error(err);
+          }
+        },
+      },
       // {
       //   path: "/login",
       //   element: <Login />,
@@ -64,6 +77,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <FavProvider>
+      <RouterProvider router={router} />
+    </FavProvider>
   </React.StrictMode>
 );

@@ -4,7 +4,7 @@ const getFavorite = (req, res) => {
   const countriesId = req.query.countries.split("|");
 
   client
-    .query("SELECT * FROM beer WHERE id in (?)", [countriesId])
+    .query("SELECT * FROM countries WHERE id in (?)", [countriesId])
     .then((result) => {
       res.status(200).json(result[0]);
     })

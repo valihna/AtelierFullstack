@@ -1,39 +1,39 @@
-// import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
 
-// const ValidationContext = createContext();
+const FavContext = createContext();
 
-// export const useValidationContext = () => useContext(ValidationContext);
+export const useFavContext = () => useContext(FavContext);
 
-// export function ValidationProvider({ children }) {
-//   const initialPanier = localStorage.getItem("panier")
-//     ? JSON.parse(localStorage.getItem("panier"))
-//     : [];
+export function FavProvider({ children }) {
+  const initialFavorites = localStorage.getItem("favorites")
+    ? JSON.parse(localStorage.getItem("favorites"))
+    : [];
 
-//   const [panier, setPanier] = useState(initialPanier);
+  const [favorites, setFavorites] = useState(initialFavorites);
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
-//   useEffect(() => {
-//     localStorage.setItem("panier", JSON.stringify(panier));
-//   }, [panier]);
+  const manageFavorites = (countriesId) => {
+    if (favorites.includes(countriesId)) {
+      setFavorites(favorites.filter((id) => id !== countriesId));
+    } else {
+      setFavorites([...favorites, countriesId]);
+    }
+  };
+  const memoValue = useMemo(
+    () => ({ favorites, manageFavorites }),
+    [favorites]
+  );
 
-//   const manageValidation = (paysId) => {
-//     if (panier.some((pays) => pays.paysId === paysId)) {
-//       // peuton passer plusieurs props?(price, name,price_per_liter)
-//       setValidation(panier.filter((pays) => pays.paysId !== paysId));
-//     } else {
-//       setValidation([
-//         ...panier,
-//         {
-//           paysId,
-//         },
-//       ]);
-//     }
-//   };
+  return (
+    <FavContext.Provider value={memoValue}>{children}</FavContext.Provider>
+  );
+}
 
 //   return (
-//     <ValidationContext.Provider
-//       value={{ panier, manageValidation, panier, manageValidation }}
-//     >
+//     <FavContext.Provider value={{ favorites, manageFavorites }}>
 //       {children}
-//     </ValidationContext.Provider>
+//     </FavContext.Provider>
 //   );
 // }
