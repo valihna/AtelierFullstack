@@ -70,14 +70,6 @@ const router = createBrowserRouter([
       {
         path: "/favorite",
         element: <Favorite />,
-        // loader: async () => {
-        //   try {
-        //     const response = await connexion.get(`/favorite`);
-        //     return response.data;
-        //   } catch (err) {
-        //     return console.error(err);
-        //   }
-        // },
       },
       // {
       //   path: "/login",
