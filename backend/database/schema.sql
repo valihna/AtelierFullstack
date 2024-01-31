@@ -34,3 +34,14 @@ INSERT INTO activities(activity, countries_id) VALUES ('Mountain/City', 7);
 INSERT INTO activities(activity, countries_id) VALUES ('Mountain', 8);
 INSERT INTO activities(activity, countries_id) VALUES ('City', 9);
 INSERT INTO activities(activity, countries_id) VALUES ('Beach/Mountain/City', 10);
+
+CREATE TABLE log (
+    id INT AUTO_INCREMENT,
+    nom VARCHAR(100),
+    prenom VARCHAR(100),
+    age INT,
+    region VARCHAR(100),
+    email VARCHAR(500),
+    password VARCHAR(100),
+    PRIMARY KEY (id)
+);
