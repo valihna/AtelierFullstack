@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import connexion from "../services/connexion";
+import AuthContext from "../Context/Context";
 import LoginInput from "../components/loginInput/loginInput";
 import "./Login.css";
 
@@ -11,6 +12,7 @@ const user = {
 
 function LogIn() {
   const [credentials, setCredentials] = useState(user);
+  useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleCredentials = (event) => {
@@ -66,7 +68,7 @@ function LogIn() {
                 required
                 onChange={handleCredentials}
                 value={credentials.email}
-                placeholder="Votre email"
+                placeholder="Your email"
               />
             </div>
             <div className="contain-input">
@@ -76,7 +78,7 @@ function LogIn() {
                 required
                 onChange={handleCredentials}
                 value={credentials.password}
-                placeholder="Votre mot de passe"
+                placeholder="your password"
               />
             </div>
             <div className="contain-submit-login">

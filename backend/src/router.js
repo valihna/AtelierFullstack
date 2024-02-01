@@ -27,6 +27,8 @@ router.post("/activities", activitiesControllers.add);
 router.post("/countries", countriesControllers.add);
 // router.post("/registration", authControllers.create);
 router.post("/auth/create", authControllers.create);
+router.post("/auth/create", authControllers.log);
+
 // router.delete:
 router.delete("/activities/:id", activitiesControllers.destroy);
 router.delete("/countries/:id", countriesControllers.destroy);
