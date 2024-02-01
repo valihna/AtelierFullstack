@@ -22,10 +22,7 @@ function Registration() {
     e.preventDefault();
 
     try {
-      const response = await connexion.post(
-        `${import.meta.env.VITE_BACKEND_URL}api/auth/create`,
-        formData
-      );
+      const response = await connexion.post(`/auth/create`, formData);
 
       if (response.data) {
         const validation = document.querySelector(".validation");
@@ -39,7 +36,7 @@ function Registration() {
   };
 
   return (
-    <div>
+    <div className="dad-balise">
       <div className="contain-validation-errorconnexion">
         <p style={{ display: "none" }} className="validation">
           Your information has been recorded successfully, thank you for your

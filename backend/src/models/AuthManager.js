@@ -9,17 +9,17 @@ class AuthManager extends AbstractManager {
   }
 
   // The C of CRUD - Create operation
-  /*
-  async create(auth) {
+
+  async create({ nom, prenom, age, email, password }) {
     // Execute the SQL INSERT query to add a new auth to the "auth" table
     const [result] = await client.query(
-      `insert into ${this.table} (mail, password) values (?, ?)`,
-      [auth.mail, auth.hash]
+      `insert into ${this.table} (nom,prenom,age,email,password) values (?, ?, ?, ?, ?)`,
+      [nom, prenom, age, email, password]
     );
     // Return the ID of the newly inserted user
     return result.insertId;
   }
-*/
+
   // The Rs of CRUD - Read operations
 
   async readByEmail(email, password) {

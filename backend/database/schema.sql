@@ -1,3 +1,4 @@
+-- SQLBook: Code
 CREATE TABLE countries(
    id          INTEGER  NOT NULL PRIMARY KEY AUTO_INCREMENT
   ,country VARCHAR(255) NOT NULL
@@ -40,7 +41,7 @@ CREATE TABLE auth (
     nom VARCHAR(100),
     prenom VARCHAR(100),
     age INT,
-    email VARCHAR(500),
+    email VARCHAR(500) UNIQUE,
     password VARCHAR(100),
     PRIMARY KEY (id)
 );
