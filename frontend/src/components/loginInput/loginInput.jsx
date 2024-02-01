@@ -1,6 +1,6 @@
 function LoginInput({ label, type, name, value, onChange, placeholder }) {
   return (
-    <label>
+    <label className="parent-label">
       {label}
       <input
         type={type}

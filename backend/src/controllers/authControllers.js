@@ -45,14 +45,39 @@ const create = async (req, res, next) => {
     next(err);
   }
 };
-
+// Login
+const log = async (req, res, next) => {
+  try {
+    const login = await tables.log.readByEmail(
+      req.body.email,
+      req.body.password
+    );
+    if (login) {
+      res.status(200).json({
+        connected: {
+          id: login.id,
+          nom: login.nom,
+          prenom: login.prenom,
+          age: login.age,
+          email: login.email,
+        },
+      });
+    } else {
+      res.sendStatus(403);
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 // ...
 
 // Export the functions for use in your routes
 module.exports = {
   // browse,
   create,
+  log,
 };
+
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 /*
@@ -124,28 +149,4 @@ const destroy = async (req, res, next) => {
 //   /*
 //   destroy,
 //   */
-// };
-// Log In
-// const log = async (req, res, next) => {
-//   try {
-//     const login = await tables.log.readByEmail(
-//       req.body.email,
-//       req.body.password
-//     );
-//     if (login) {
-//       res.status(200).json({
-//         connected: {
-//           id: login.id,
-//           nom: login.nom,
-//           prenom: login.prenom,
-//           age: login.age,
-//           email: login.email,
-//         },
-//       });
-//     } else {
-//       res.sendStatus(403);
-//     }
-//   } catch (err) {
-//     next(err);
-//   }
 // };
