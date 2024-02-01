@@ -40,7 +40,6 @@ CREATE TABLE log (
     nom VARCHAR(100),
     prenom VARCHAR(100),
     age INT,
-    region VARCHAR(100),
     email VARCHAR(500),
     password VARCHAR(100),
     PRIMARY KEY (id)

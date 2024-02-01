@@ -9,6 +9,7 @@ import Activities from "./pages/Activities";
 // import Win from "./pages/Win";
 import Favorite from "./components/favorites/Favorite";
 import Login from "./pages/Login";
+import Registration from "./components/registration/Registration";
 
 const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/registration",
+        element: <Registration />,
       },
     ],
   },

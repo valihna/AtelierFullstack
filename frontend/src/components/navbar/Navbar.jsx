@@ -26,6 +26,9 @@ function Navbar() {
         <Link to="/login">
           <p className="nav_p">Login </p>
         </Link>
+        <Link to="/registration">
+          <p className="nav_p">registration </p>
+        </Link>
       </div>
     </div>
   );
