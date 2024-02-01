@@ -84,6 +84,14 @@ const router = createBrowserRouter([
       {
         path: "/registration",
         element: <Registration />,
+        // loader: async () => {
+        //   try {
+        //     const response = await connexion.get(`/auth`);
+        //     return response.data;
+        //   } catch (err) {
+        //     return console.error(err);
+        //   }
+        // },
       },
     ],
   },
