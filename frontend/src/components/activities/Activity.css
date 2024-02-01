@@ -45,7 +45,7 @@
 }
 
 .activity-card {
-  flex: 0 1 calc(33.33% - 20px); 
+  flex: 0 1 calc(33.33% - 20px);
   margin-bottom: 20px;
   border-radius: 1rem;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -54,7 +54,7 @@
 
 .img-activity {
   width: 100%;
-  border-radius: 1rem 1rem 0 0; 
+  border-radius: 1rem 1rem 0 0;
 }
 
 .h3-acttivity,
@@ -70,17 +70,16 @@
     1px 1px 1px black;
   margin: 0;
   padding: 0;
-  width: calc(100% - 20px); 
+  width: calc(100% - 20px);
 }
 
 .p-activity {
-  bottom: 30px; 
+  bottom: 30px;
 }
-
 
 @media screen and (max-width: 992px) {
   .activity-card {
-    flex: 0 1 calc(50% - 20px); 
+    flex: 0 1 calc(50% - 20px);
   }
 }
 
@@ -88,5 +87,4 @@
   .activity-card {
     flex: 0 1 calc(100% - 20px);
   }
-
 }
