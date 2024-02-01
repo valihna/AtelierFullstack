@@ -12,7 +12,7 @@ const router = express.Router();
 const activitiesControllers = require("./controllers/ActivitiesControllers");
 const countriesControllers = require("./controllers/CountriesControllers");
 const authControllers = require("./controllers/authControllers");
-
+// const authController = require("./controllers/path-to-auth-controller");
 // // Route to get a list of items
 router.get("/activities", activitiesControllers.browse);
 router.get("/countries", countriesControllers.browse);
@@ -25,7 +25,8 @@ router.put("/countries/:id", countriesControllers.update);
 // router.post:
 router.post("/activities", activitiesControllers.add);
 router.post("/countries", countriesControllers.add);
-router.post("/login", authControllers.log);
+// router.post("/registration", authControllers.create);
+router.post("/auth", authControllers.create);
 // router.delete:
 router.delete("/activities/:id", activitiesControllers.destroy);
 router.delete("/countries/:id", countriesControllers.destroy);

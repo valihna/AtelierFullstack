@@ -1,47 +1,74 @@
-.country {
-  background-color: #e2e2e2;
-  width: 50%;
-  display: grid;
-  justify-items: center;
-  align-items: center;
-  margin-left: 20px;
-  margin-right: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.country-global {
+  flex: 0 1 calc(33.33% - 20px); /* Pour afficher trois cartes par ligne avec un espace entre chaque carte */
+  margin-bottom: 20px;
+  border-radius: 1rem;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
 }
-.pictures {
-  max-width: 100%;
-  height: auto;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin: 10px;
-  padding: 15px;
-  width: 250px;
+
+.pictures-count {
+  width: 100%;
+  height: 200px; /* Hauteur fixe pour l'image */
+  overflow: hidden;
 }
-img.img-src {
-  max-width: 100%;
-  height: auto;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin: 10px;
-  padding: 15px;
-  width: 250px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  display: grid;
-  justify-items: center;
+
+.img-count {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ajuste la taille de l'image pour remplir entièrement le conteneur */
+  border-radius: 1rem 1rem 0 0; /* Arrondi uniquement dans les coins supérieurs */
 }
-.country-card {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin: 10px;
-  padding: 15px;
-  /* width: 250px; */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
+
+.favbutton-count {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
-.country-desc {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  font-size: 11px;
+
+.count-h5 {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  text-shadow:
+    -1px -1px 1px black,
+    1px -1px 1px black,
+    -1px 1px 1px black,
+    1px 1px 1px black;
+  margin: 0;
+  width: calc(
+    100% - 20px
+  ); /* Ajuste la largeur du texte pour laisser de la place pour les marges */
+  overflow: hidden;
+  white-space: nowrap; /* Empêche le texte de se diviser sur plusieurs lignes */
+  text-overflow: ellipsis; /* Affiche ... lorsque le texte dépasse la largeur */
+}
+
+.p-count-desc {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.p-count-desc p {
+  margin: 0;
+  color: white;
+}
+
+/* Media Query pour rendre la mise en page réactive */
+@media screen and (max-width: 992px) {
+  .country-global {
+    flex: 0 1 calc(50% - 20px); /* Pour afficher deux cartes par ligne sur les écrans de taille moyenne */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .country-global {
+    flex: 0 1 calc(100% - 20px); /* Pour afficher une seule carte par ligne sur les petits écrans */
+  }
 }

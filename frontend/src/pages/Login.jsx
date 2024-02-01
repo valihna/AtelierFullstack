@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import connexion from "../services/connexion";
 import LoginInput from "../components/loginInput/loginInput";
 import "./Login.css";
 
@@ -23,7 +23,7 @@ function LogIn() {
   const handleRequest = async (e) => {
     e.preventDefault();
     try {
-      const valid = await axios.post(
+      const valid = await connexion.post(
         `${import.meta.env.VITE_BACKEND_URL}/api/login`,
         credentials
       );

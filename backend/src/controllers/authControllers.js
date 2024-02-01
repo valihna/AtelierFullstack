@@ -16,32 +16,51 @@ const browse = async (req, res, next) => {
 };
 */
 
-// Log In
-const log = async (req, res, next) => {
+const create = async (req, res, next) => {
   try {
-    const login = await tables.log.readByEmail(
-      req.body.email,
-      req.body.password
-    );
-    if (login) {
-      res.status(200).json({
-        connected: {
-          id: login.id,
-          nom: login.nom,
-          prenom: login.prenom,
-          age: login.age,
-          region: login.region,
-          email: login.email,
+    // Extract user information from the request body
+    const { nom, prenom, age, email, password } = req.body;
+
+    // Check if the user already exists
+    const existingUser = await tables.auth.readByEmail(email);
+
+    if (existingUser) {
+      // User with the provided email already exists
+      res.status(409).json({ error: "User with this email already exists" });
+    } else {
+      // Create a new user in the database
+      const newUser = await tables.auth.create({
+        nom,
+        prenom,
+        age,
+        email,
+        password,
+      });
+
+      // Respond with the newly created user
+      res.status(201).json({
+        created: {
+          id: newUser.id,
+          nom: newUser.nom,
+          prenom: newUser.prenom,
+          age: newUser.age,
+          email: newUser.email,
         },
       });
-    } else {
-      res.sendStatus(403);
     }
   } catch (err) {
+    // Pass any errors to the error-handling middleware
     next(err);
   }
 };
 
+// ...
+
+// Export the functions for use in your routes
+module.exports = {
+  // browse,
+  create,
+};
 // The E of BREAD - Edit (Update) operation
 // This operation is not yet implemented
 /*
@@ -99,18 +118,42 @@ const destroy = async (req, res, next) => {
 */
 
 // Ready to export the controller functions
-module.exports = {
-  /*
-  browse,
-  */
-  log,
-  /*
-  update,
-  */
-  /*
-  add,
-  */
-  /*
-  destroy,
-  */
-};
+// module.exports = {
+//   /*
+//   browse,
+//   */
+//   log,
+//   /*
+//   update,
+//   */
+//   /*
+//   add,
+//   */
+//   /*
+//   destroy,
+//   */
+// };
+// Log In
+// const log = async (req, res, next) => {
+//   try {
+//     const login = await tables.log.readByEmail(
+//       req.body.email,
+//       req.body.password
+//     );
+//     if (login) {
+//       res.status(200).json({
+//         connected: {
+//           id: login.id,
+//           nom: login.nom,
+//           prenom: login.prenom,
+//           age: login.age,
+//           email: login.email,
+//         },
+//       });
+//     } else {
+//       res.sendStatus(403);
+//     }
+//   } catch (err) {
+//     next(err);
+//   }
+// };
