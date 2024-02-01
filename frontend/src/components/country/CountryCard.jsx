@@ -1,27 +1,29 @@
 import PropTypes from "prop-types";
+// import { Link } from "react-router-dom";
 import React from "react";
 import FavButton from "../favorites/FavButton";
 import "./Country.css";
 
 function CountryCard({ count }) {
   return (
-    <article className="country">
-      <div className="pictures">
-        <img className="img-src" src={count.img_src} alt={count.img_src} />
-        <FavButton countriesId={count.id} />
-      </div>
-      <div className="country">
-        <h5>{count.country}</h5>
-      </div>
-      <div className="country-desc">
-        <p className="countries">{count.countries}</p>
-        {/* <p className="photo">{count.photo}</p> */}
-      </div>
-    </article>
+    <div className="country-page">
+      <article className="country-card">
+        <div className="pictures">
+          <img className="img-src" src={count.img_src} alt={count.img_src} />
+        </div>
+        <div className="country-h5">
+          <h5>{count.country}</h5>
+        </div>
+        <div className="country-desc">
+          <p className="p-countries">{count.countries}</p>
+          <FavButton countriesId={count.id} />
+        </div>
+      </article>
+    </div>
   );
 }
 CountryCard.propTypes = {
   count: PropTypes.shape().isRequired,
-  // countries: PropTypes.obj().isRequired,
 };
+
 export default CountryCard;

@@ -1,15 +1,15 @@
 .navbar {
   display: flex;
-  justify-content: center;
+  align-items: center;
+  gap: 20px;
   padding: 1rem;
   border-bottom: solid 1px rgb(243, 241, 241);
 }
 
 .nav_link {
-  width: 50%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
-  margin-right: 50px;
   align-items: center;
 }
 
@@ -18,12 +18,10 @@
   justify-content: flex-start;
 }
 
-.nav_p {
+a {
+  text-decoration: none;
   color: black;
   text-decoration: none;
   font-size: 20px;
 }
-
-a {
-  text-decoration: none;
-}
+/*  mettre le menu qui pars vers la droite pour la version mobile  */

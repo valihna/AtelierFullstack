@@ -10,6 +10,7 @@ import Activities from "./pages/Activities";
 import Favorite from "./components/favorites/Favorite";
 import Login from "./pages/Login";
 import Registration from "./components/registration/Registration";
+import CardCountries from "./components/card/CardCountries";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
             return console.error(err);
           }
         },
+      },
+      {
+        path: "/countryCard",
+        element: <CardCountries />,
       },
       // {
       //   path: "/win",
