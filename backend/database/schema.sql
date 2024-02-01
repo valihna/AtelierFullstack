@@ -35,7 +35,7 @@ INSERT INTO activities(activity, countries_id) VALUES ('Mountain', 8);
 INSERT INTO activities(activity, countries_id) VALUES ('City', 9);
 INSERT INTO activities(activity, countries_id) VALUES ('Beach/Mountain/City', 10);
 
-CREATE TABLE log (
+CREATE TABLE auth (
     id INT AUTO_INCREMENT,
     nom VARCHAR(100),
     prenom VARCHAR(100),

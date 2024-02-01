@@ -1,5 +1,5 @@
-import axios from "axios";
 import React, { useState } from "react";
+import connexion from "../../services/connexion";
 import "./Registration.css";
 
 function Registration() {
@@ -22,8 +22,8 @@ function Registration() {
     e.preventDefault();
 
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/log`,
+      const response = await connexion.post(
+        `${import.meta.env.VITE_BACKEND_URL}api/auth/create`,
         formData
       );
 
