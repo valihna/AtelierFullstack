@@ -21,33 +21,25 @@ const create = async (req, res, next) => {
     // Extract user information from the request body
     const { nom, prenom, age, email, password } = req.body;
 
-    // Check if the user already exists
-    const existingUser = await tables.auth.readByEmail(email);
+    // Create a new user in the database
+    const newUser = await tables.auth.create({
+      nom,
+      prenom,
+      age,
+      email,
+      password,
+    });
 
-    if (existingUser) {
-      // User with the provided email already exists
-      res.status(409).json({ error: "User with this email already exists" });
-    } else {
-      // Create a new user in the database
-      const newUser = await tables.auth.create({
-        nom,
-        prenom,
-        age,
-        email,
-        password,
-      });
-
-      // Respond with the newly created user
-      res.status(201).json({
-        created: {
-          id: newUser.id,
-          nom: newUser.nom,
-          prenom: newUser.prenom,
-          age: newUser.age,
-          email: newUser.email,
-        },
-      });
-    }
+    // Respond with the newly created user
+    res.status(201).json({
+      created: {
+        id: newUser.id,
+        nom: newUser.nom,
+        prenom: newUser.prenom,
+        age: newUser.age,
+        email: newUser.email,
+      },
+    });
   } catch (err) {
     // Pass any errors to the error-handling middleware
     next(err);
