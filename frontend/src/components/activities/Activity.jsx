@@ -21,10 +21,16 @@ function Activity() {
     <div>
       <div className="activity-gallery">
         {activityData.map((activity) => (
-          <div key={activity.id} className="activity-card">
-            <img src={activity.img_src} alt={activity.activity} />
-            <h3>{activity.activity}</h3>
-            <p>Countries : {activity.countries}</p>
+          <div className="activity-card" key={activity.id}>
+            <div className="pictures">
+              <img src={activity.img_src} alt={activity.activity} />
+            </div>
+            <div className="country-h3">
+              <h3>{activity.activity}</h3>
+            </div>
+            <div className="country-desc">
+              <p>Countries : {activity.countries}</p>
+            </div>
           </div>
         ))}
       </div>
