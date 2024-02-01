@@ -1,3 +1,43 @@
+.activity-gallery {
+  margin-top: 50px;
+  width: 100%;
+}
+
+.activity-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  height: auto;
+  width: 290px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+
+.pictures {
+  padding: 15px;
+}
+
+.activity-card img {
+  object-fit: fill;
+  border-radius: 8px;
+  margin: 10px;
+  height: 150px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.country-h3 {
+  text-align: center;
+}
+
+.country-desc {
+  text-align: center;
+  font-size: 12px;
+}
+
 .gallery-activity {
   display: flex;
   flex-wrap: wrap;
@@ -5,7 +45,7 @@
 }
 
 .activity-card {
-  flex: 0 1 calc(33.33% - 20px); /* Pour afficher trois cartes par ligne avec un espace entre chaque carte */
+  flex: 0 1 calc(33.33% - 20px); 
   margin-bottom: 20px;
   border-radius: 1rem;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -14,7 +54,7 @@
 
 .img-activity {
   width: 100%;
-  border-radius: 1rem 1rem 0 0; /* Arrondi uniquement dans les coins supérieurs */
+  border-radius: 1rem 1rem 0 0; 
 }
 
 .h3-acttivity,
@@ -30,22 +70,23 @@
     1px 1px 1px black;
   margin: 0;
   padding: 0;
-  width: calc(100% - 20px); /* Largeur à 100% moins le padding */
+  width: calc(100% - 20px); 
 }
 
 .p-activity {
-  bottom: 30px; /* Ajustez la position verticale selon vos besoins */
+  bottom: 30px; 
 }
 
-/* Media Query pour rendre la mise en page réactive */
+
 @media screen and (max-width: 992px) {
   .activity-card {
-    flex: 0 1 calc(50% - 20px); /* Pour afficher deux cartes par ligne sur les écrans de taille moyenne */
+    flex: 0 1 calc(50% - 20px); 
   }
 }
 
 @media screen and (max-width: 576px) {
   .activity-card {
-    flex: 0 1 calc(100% - 20px); /* Pour afficher une seule carte par ligne sur les petits écrans */
+    flex: 0 1 calc(100% - 20px);
   }
+
 }

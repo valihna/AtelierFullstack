@@ -1,5 +1,51 @@
+.country-page {
+  margin-top: 50px;
+  width: 100%;
+}
+
+.container_country {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.country-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  height: auto;
+  width: 290px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  padding: 15px;
+}
+
+.pictures {
+  padding: 15px;
+}
+
+.img-src {
+  object-fit: fill;
+  border-radius: 8px;
+  margin: 10px;
+  height: 150px;
+  width: 250px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  justify-items: center;
+}
+
+.country-desc {
+  text-align: center;
+  font-size: 12px;
+}
+
 .country-global {
-  flex: 0 1 calc(33.33% - 20px); /* Pour afficher trois cartes par ligne avec un espace entre chaque carte */
+  flex: 0 1 calc(33.33% - 20px); 
   margin-bottom: 20px;
   border-radius: 1rem;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
@@ -9,15 +55,15 @@
 
 .pictures-count {
   width: 100%;
-  height: 200px; /* Hauteur fixe pour l'image */
+  height: 200px; 
   overflow: hidden;
 }
 
 .img-count {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ajuste la taille de l'image pour remplir entièrement le conteneur */
-  border-radius: 1rem 1rem 0 0; /* Arrondi uniquement dans les coins supérieurs */
+  object-fit: cover; 
+  border-radius: 1rem 1rem 0 0;
 }
 
 .favbutton-count {
@@ -39,10 +85,10 @@
   margin: 0;
   width: calc(
     100% - 20px
-  ); /* Ajuste la largeur du texte pour laisser de la place pour les marges */
+  ); 
   overflow: hidden;
-  white-space: nowrap; /* Empêche le texte de se diviser sur plusieurs lignes */
-  text-overflow: ellipsis; /* Affiche ... lorsque le texte dépasse la largeur */
+  white-space: nowrap; 
+  text-overflow: ellipsis; 
 }
 
 .p-count-desc {
@@ -60,15 +106,16 @@
   color: white;
 }
 
-/* Media Query pour rendre la mise en page réactive */
+
 @media screen and (max-width: 992px) {
   .country-global {
-    flex: 0 1 calc(50% - 20px); /* Pour afficher deux cartes par ligne sur les écrans de taille moyenne */
+    flex: 0 1 calc(50% - 20px);
   }
 }
 
 @media screen and (max-width: 576px) {
   .country-global {
-    flex: 0 1 calc(100% - 20px); /* Pour afficher une seule carte par ligne sur les petits écrans */
+    flex: 0 1 calc(100% - 20px); 
   }
+
 }

@@ -9,27 +9,27 @@ function Navbar() {
       <div className="nav_link">
         <SearchBar />
         <Link to="/">
-          <p className="nav_p">Welcome </p>
-        </Link>
-        <Link to="/countries">
-          <p className="nav_p">Countries </p>
-        </Link>
-        <Link to="/activities">
-          <p className="nav_p">Activities </p>
-        </Link>
-        <Link to="/win">
-          <p className="nav_p">Play </p>
-        </Link>
-        <Link to="/favorite">
-          <p className="nav_p">favorites </p>
-        </Link>
-        <Link to="/login">
-          <p className="nav_p">Login </p>
-        </Link>
-        <Link to="/registration">
-          <p className="nav_p">registration </p>
+          <p>Welcome </p>
         </Link>
       </div>
+      <Link to="/countries">
+        <p>Countries </p>
+      </Link>
+      <Link to="/activities">
+        <p>Activities </p>
+      </Link>
+      {/* <Link to="/win">
+        <p>Play </p>
+      </Link> */}
+      <Link to="/favorite">
+        <p>favorites </p>
+      </Link>
+      <Link to="/login">
+        <p>Login </p>
+      </Link>
+      <Link to="/registration">
+        <p>SignUp </p>
+      </Link>
     </div>
   );
 }
