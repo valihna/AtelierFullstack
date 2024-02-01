@@ -24,9 +24,11 @@
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
   padding: 15px;
 }
+
 .pictures {
   padding: 15px;
 }
+
 .img-src {
   object-fit: fill;
   border-radius: 8px;
@@ -40,6 +42,8 @@
 .country-desc {
   text-align: center;
   font-size: 12px;
+}
+
 .country-global {
   flex: 0 1 calc(33.33% - 20px); 
   margin-bottom: 20px;
