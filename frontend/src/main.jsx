@@ -2,12 +2,13 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import connexion from "./services/connexion";
-import { FavProvider } from "./Context/Context";
 import App from "./App";
 import Destinations from "./pages/Destinations";
 import Activities from "./pages/Activities";
+import AuthProvider from "./Context/Context";
+
 // import Win from "./pages/Win";
-import Favorite from "./components/favorites/Favorite";
+import Favorites from "./components/favorite/Favorite";
 import Login from "./pages/Login";
 import Registration from "./components/registration/Registration";
 import CardCountries from "./components/card/CardCountries";
@@ -74,8 +75,8 @@ const router = createBrowserRouter([
       //   element: <Win />,
       // },
       {
-        path: "/favorite",
-        element: <Favorite />,
+        path: "/favorites",
+        element: <Favorites />,
       },
       {
         path: "/login",
@@ -101,8 +102,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <FavProvider>
+    <AuthProvider>
       <RouterProvider router={router} />
-    </FavProvider>
+    </AuthProvider>
   </React.StrictMode>
 );

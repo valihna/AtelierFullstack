@@ -1,17 +1,33 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 import connexion from "../services/connexion";
-import AuthContext from "../Context/Context";
+import { AuthContext } from "../Context/Context";
 import LoginInput from "../components/loginInput/loginInput";
 import "./Login.css";
+import "react-toastify/dist/ReactToastify.css";
 
 const user = {
   email: "",
   password: "",
 };
+const showToastMessage = () => {
+  toast.success(
+    "Your connection information is correct, you will be redirected !",
+    {
+      position: toast.POSITION.TOP_CENTER,
+    }
+  );
+};
 
+const showToastErrorMessage = () => {
+  toast.error("Your login information is not correct !", {
+    position: toast.POSITION.TOP_RIGHT,
+  });
+};
 function LogIn() {
   const [credentials, setCredentials] = useState(user);
+  const { setInfosUser } = useContext(AuthContext);
   useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -29,6 +45,8 @@ function LogIn() {
         `${import.meta.env.VITE_BACKEND_URL}/api/login`,
         credentials
       );
+      setInfosUser(valid.data);
+      showToastMessage();
       if (valid) {
         const validation = document.querySelector(".validation");
         validation.style.display = "block";
@@ -41,8 +59,7 @@ function LogIn() {
         }, 3000);
       }
     } catch (error) {
-      const errorconnexion = document.querySelector(".errorconnexion");
-      errorconnexion.style.display = "block";
+      showToastErrorMessage(error);
       setCredentials(user);
     }
   };
@@ -81,6 +98,7 @@ function LogIn() {
                 placeholder="your password"
               />
             </div>
+            <ToastContainer />
             <div className="contain-submit-login">
               <button type="submit" className="button-submit">
                 To log in

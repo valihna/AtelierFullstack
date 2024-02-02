@@ -46,6 +46,10 @@ CREATE TABLE auth (
     PRIMARY KEY (id)
 );
 
--- SELECT countries.id, countries.country, countries.img_src, countries.countries, countries.photo, activities.activity
--- FROM countries
--- INNER JOIN activities ON countries.id = activities.countries_id;
+create table favorites (
+  countries_id INT NOT NULL,
+  auth_id INT NOT NULL,
+  Foreign Key (countries_id) REFERENCES countries(id),
+  Foreign Key (auth_id) REFERENCES auth(id),
+  PRIMARY KEY (countries_id, auth_id)
+);

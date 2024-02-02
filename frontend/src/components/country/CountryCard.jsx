@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { Link } from "react-router-dom";
-import FavButton from "../favorites/FavButton";
+import FavButton from "../favorite/FavButton";
 import "./Country.css";
 
 function CountryCard({ count }) {
@@ -21,7 +21,7 @@ function CountryCard({ count }) {
               <Link to={`/cardCountries/${count.count_id}`} className="button">
                 see more
               </Link>
-              <FavButton countriesId={count.id} />
+              <FavButton countriesId={count.id} countriesImg={count.img_src} />
             </div>
           </div>
         </article>

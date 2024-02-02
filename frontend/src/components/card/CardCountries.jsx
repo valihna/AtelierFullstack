@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import FavButton from "../favorites/FavButton";
+import FavButton from "../favorite/FavButton";
 import connexion from "../../services/connexion";
 import "./CardCountries.css";
 

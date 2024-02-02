@@ -8,6 +8,23 @@ const browse = async (req, res, next) => {
     next(err);
   }
 };
+
+const Favbrowse = async (req, res, next) => {
+  try {
+    const countries = await tables.countries.readAll();
+
+    const favoritesByUser = await tables.favorites.readAllById(req.user.id);
+
+    res.status(200).json(
+      countries.map((count) => ({
+        ...count,
+        fav: favoritesByUser.some((fav) => fav.country_id === count.id),
+      }))
+    );
+  } catch (err) {
+    next(err);
+  }
+};
 const readCountries = async (req, res, next) => {
   try {
     const countries = await tables.countries.readAllCountries();
@@ -62,6 +79,7 @@ const add = async (req, res, next) => {
 };
 module.exports = {
   browse,
+  Favbrowse,
   readCountries,
   read,
   update,

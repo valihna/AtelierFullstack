@@ -1,88 +1,38 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
+import { createContext, useMemo, useState } from "react";
+import PropTypes from "prop-types";
 
-const AuthContext = createContext();
-const FavContext = createContext();
+export const AuthContext = createContext();
 
-export const useFavContext = () => useContext(FavContext);
-
-export function FavProvider({ children }) {
-  const initialFavorites = JSON.parse(localStorage.getItem("favorites")) || [];
-
-  const [favorites, setFavorites] = useState(initialFavorites);
-
-  useEffect(() => {
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
-
-  const manageFavorites = (countryId) => {
-    setFavorites((favorisPrecedents) => {
-      if (favorisPrecedents.includes(countryId)) {
-        return favorisPrecedents.filter((id) => id !== countryId);
-      }
-      return [...favorisPrecedents, countryId];
-    });
-  };
-
-  const memoValue = useMemo(
-    () => ({ favorites, manageFavorites }),
-    [favorites]
+function AuthProvider({ children }) {
+  const [idNewUser, setIdNewUser] = useState({ id: 0 });
+  const [infosUser, setInfosUser] = useState({ username: "" });
+  const [favoriesUser, setFavoriesUser] = useState({ id: 0 });
+  const contextValue = useMemo(
+    () => ({
+      infosUser,
+      setInfosUser,
+      idNewUser,
+      setIdNewUser,
+      favoriesUser,
+      setFavoriesUser,
+    }),
+    [
+      infosUser,
+      setInfosUser,
+      idNewUser,
+      setIdNewUser,
+      favoriesUser,
+      setFavoriesUser,
+    ]
   );
 
   return (
-    <FavContext.Provider value={memoValue}>{children}</FavContext.Provider>
+    <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
   );
 }
-export default AuthContext;
-// import {
-//   createContext,
-//   AuthContext,
-//   useContext,
-//   useEffect,
-//   useMemo,
-//   useState,
-// } from "react";
 
-// const AuthContext = createContext();
-// const FavContext = createContext();
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
-// export const useFavContext = () => useContext(FavContext);
-
-// export function FavProvider({ children }) {
-//   const initialFavorites = localStorage.getItem("favorites")
-//     ? JSON.parse(localStorage.getItem("favorites"))
-//     : [];
-
-//   const [favorites, setFavorites] = useState(initialFavorites);
-//   useEffect(() => {
-//     localStorage.setItem("favorites", JSON.stringify(favorites));
-//   }, [favorites]);
-
-//   const manageFavorites = (countriesId) => {
-//     if (favorites.includes(countriesId)) {
-//       setFavorites(favorites.filter((id) => id !== countriesId));
-//     } else {
-//       setFavorites([...favorites, countriesId]);
-//     }
-//   };
-//   const memoValue = useMemo(
-//     () => ({ favorites, manageFavorites }),
-//     [favorites]
-//   );
-
-//   return (
-//     <FavContext.Provider value={memoValue}>{children}</FavContext.Provider>
-//   );
-// }
-
-//   return (
-//     <FavContext.Provider value={{ favorites, manageFavorites }}>
-//       {children}
-//     </FavContext.Provider>
-//   );
-// }
+export default AuthProvider;
