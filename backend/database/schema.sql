@@ -45,3 +45,7 @@ CREATE TABLE auth (
     password VARCHAR(100),
     PRIMARY KEY (id)
 );
+
+-- SELECT countries.id, countries.country, countries.img_src, countries.countries, countries.photo, activities.activity
+-- FROM countries
+-- INNER JOIN activities ON countries.id = activities.countries_id;

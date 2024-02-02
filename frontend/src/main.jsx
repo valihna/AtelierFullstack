@@ -66,7 +66,7 @@ const router = createBrowserRouter([
         },
       },
       {
-        path: "/countryCard",
+        path: "/cardCountries",
         element: <CardCountries />,
       },
       // {
