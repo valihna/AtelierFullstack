@@ -8,7 +8,7 @@ function Activity() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await connexion.get("/activities");
+        const response = await connexion.get("/allcountries");
         setActivityData(response.data);
       } catch (error) {
         console.error(error);
@@ -17,7 +17,6 @@ function Activity() {
 
     fetchData();
   }, []);
-
   return (
     <div className="gobal-activity">
       <div className="p-activity">
@@ -31,19 +30,20 @@ function Activity() {
         </p>
       </div>
       <div className="gallery-activity">
-        {activityData.map((activity) => (
-          <div key={activity.id} className="activity-card">
-            <img
-              className="img-activity"
-              src={activity.img_src}
-              alt={activity.activity}
-            />
-            <h3 className="h3-acttivity">{activity.activity}</h3>
-            <p className="pcountries-activity">
-              Countries : {activity.countries}
-            </p>
-          </div>
-        ))}
+        {activityData &&
+          activityData.map((activity) => (
+            <div key={activity.id} className="activity-card">
+              <h3 className="h3-activity">{activity.activity}</h3>
+              <img
+                className="img-activity"
+                src={activity.img_src}
+                alt={activity.activity}
+              />
+              <p className="pcountries-activity">
+                Countries : {activity.country}
+              </p>
+            </div>
+          ))}
       </div>
     </div>
   );

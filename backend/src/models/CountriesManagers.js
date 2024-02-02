@@ -6,8 +6,13 @@ class CountriesManager extends AbstractManager {
   }
 
   async readAll() {
+    const [rows] = await this.database.query(`SELECT * FROM ${this.table}`);
+    return rows;
+  }
+
+  async readAllCountries() {
     const [rows] = await this.database.query(
-      `SELECT * FROM ${this.table} LIMIT 20`
+      `SELECT countries.id, countries.country, countries.img_src, countries.countries, countries.photo, activities.activity, activities.countries_id FROM countries INNER JOIN activities ON countries.id = activities.countries_id;`
     );
     return rows;
   }

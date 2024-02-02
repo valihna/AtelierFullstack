@@ -28,3 +28,41 @@ function SearchBar({ onSearch }) {
 }
 
 export default SearchBar;
+
+// import React, { useState } from "react";
+// import { FaSearch } from "react-icons/fa";
+// import CountryCard from "../country/CountryCard";
+// import SelectCount from "./SelectCount";
+// import "./SearchBar.css";
+
+// function SearchBar({ countries }) {
+//   const sections = new Set(countries.map((country) => country.section));
+//   const [sectionFilter, setSectionFilter] = useState("all");
+
+//   return (
+//     <div>
+//       <div className="input-wrapper">
+//         <form className="section-country">
+//           <SelectCount
+//             functionFilter={setSectionFilter}
+//             title="All sections"
+//             tab={sections}
+//           />
+//           <FaSearch />
+//         </form>
+//       </div>
+//       <div>
+//         {countries
+//           .filter(
+//             (country) =>
+//               country.section === sectionFilter || sectionFilter === "all"
+//           )
+//           .map((count) => (
+//             <CountryCard key={count.id} count={count} />
+//           ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default SearchBar;

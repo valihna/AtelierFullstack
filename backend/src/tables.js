@@ -7,12 +7,14 @@ const ItemManager = require("./models/ItemManager");
 const ActivitiesManager = require("./models/ActivitiesManagers");
 const CountriesManager = require("./models/CountriesManagers");
 const AuthManager = require("./models/AuthManager");
+// const FavoritesManager = require("./models/FavoritesManager");
 
 const managers = [
   ItemManager,
   ActivitiesManager,
   CountriesManager,
   AuthManager,
+  // FavoritesManager,
 ];
 
 // Create an empty object to hold data managers for different tables

@@ -8,6 +8,14 @@ const browse = async (req, res, next) => {
     next(err);
   }
 };
+const readCountries = async (req, res, next) => {
+  try {
+    const countries = await tables.countries.readAllCountries();
+    res.status(200).json(countries);
+  } catch (err) {
+    next(err);
+  }
+};
 
 const read = async (req, res, next) => {
   try {
@@ -54,6 +62,7 @@ const add = async (req, res, next) => {
 };
 module.exports = {
   browse,
+  readCountries,
   read,
   update,
   destroy,
